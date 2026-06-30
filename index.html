@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cole Mohammed | Cybersecurity Consultant</title>
+  <meta name="description" content="Portfolio and CV website for Cole Mohammed, Cybersecurity Consultant and Ethical Hacker." />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2e;
+      --card: rgba(255, 255, 255, 0.07);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #f5f7fb;
+      --muted: #aebbd0;
+      --accent: #00d4ff;
+      --accent-2: #7df9ff;
+      --success: #40f99b;
+      --shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+      --max: 1150px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(0, 212, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 80% 0%, rgba(125, 249, 255, 0.10), transparent 28%),
+        linear-gradient(135deg, #050a13 0%, var(--bg) 45%, #050b14 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, 0.78);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a:hover { color: var(--accent-2); }
+
+    .hero {
+      padding: 100px 0 70px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent-2);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 { line-height: 1.15; margin: 0; }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5.7rem);
+      letter-spacing: -0.07em;
+      margin-bottom: 20px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), #fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      max-width: 720px;
+      margin: 0 0 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid var(--card-border);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), #1b8cff); color: #02101b; border: 0; }
+    .btn.ghost { background: rgba(255,255,255,0.06); }
+
+    .terminal-card {
+      background: rgba(5, 12, 22, 0.82);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .terminal-top {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: #ff5f56; }
+    .dot:nth-child(2) { background: #ffbd2e; }
+    .dot:nth-child(3) { background: #27c93f; }
+
+    .terminal-body {
+      padding: 22px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      color: #d8faff;
+      font-size: 0.93rem;
+    }
+
+    .terminal-body .cmd { color: var(--success); }
+    .terminal-body .muted { color: #90a8bd; }
+
+    section { padding: 64px 0; }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.04em;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .card p, .card li { color: var(--muted); }
+    .card ul { padding-left: 18px; margin: 12px 0 0; }
+
+    .pill-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pill {
+      padding: 9px 12px;
+      background: rgba(0, 212, 255, 0.09);
+      border: 1px solid rgba(0, 212, 255, 0.18);
+      color: #dffbff;
+      border-radius: 999px;
+      font-size: 0.92rem;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .date {
+      color: var(--accent-2);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .experience-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .experience-card h3 { margin-bottom: 4px; }
+    .role-meta { color: var(--muted); margin-bottom: 12px; }
+
+    .project {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .project-visual {
+      min-height: 280px;
+      background:
+        linear-gradient(135deg, rgba(0,212,255,0.22), rgba(125,249,255,0.05)),
+        radial-gradient(circle at center, rgba(255,255,255,0.12), transparent 38%);
+      border-radius: var(--radius);
+      border: 1px solid var(--card-border);
+      display: grid;
+      place-items: center;
+      font-size: 4.5rem;
+    }
+
+    .certs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cert {
+      border: 1px solid rgba(125,249,255,0.20);
+      background: rgba(255,255,255,0.06);
+      padding: 13px 15px;
+      border-radius: 14px;
+      color: #e9fbff;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 45px 0;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .project { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 12px; }
+    }
+
+    @media (max-width: 650px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      nav { align-items: flex-start; padding: 16px 0; flex-direction: column; }
+      .nav-links { justify-content: flex-start; }
+      .hero { padding-top: 64px; }
+      .timeline-item { grid-template-columns: 1fr; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#top">Cole<span>Mohammed</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#journey">Journey</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div>
+        <div class="eyebrow">Cybersecurity Consultant • Ethical Hacker</div>
+        <h1>Cole Mohammed<br><span class="gradient">Cyber Resilience, Security Testing & Awareness</span></h1>
+        <p>
+          Cybersecurity consultant and ethical hacker with hands-on experience delivering vulnerability assessments,
+          Microsoft 365 security reviews, policy reviews, and cybersecurity awareness training for SMEs.
+        </p>
+        <div class="buttons">
+          <a class="btn ghost" href="https://linkedin.com/in/colemohammed/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="#projects">View Projects</a>
+        </div>
+      </div>
+
+      <div class="terminal-card" aria-label="Profile terminal card">
+        <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="terminal-body">
+          <p><span class="cmd">$ whoami</span><br>Cole Mohammed</p>
+          <p><span class="cmd">$ focus</span><br>Vulnerability assessments<br>Microsoft 365 security<br>Cyber awareness training<br>Policy & governance reviews</p>
+          <p><span class="cmd">$ status</span><br><span class="muted">First Class BSc Computer Networks & Cyber Security</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About</h2>
+          <p>A practical security professional with a long-standing interest in building, modifying, repairing and securing technology.</p>
+        </div>
+        <div class="card">
+          <p>
+            I am a Cybersecurity Consultant with experience supporting small and medium-sized organisations through technical assessments,
+            security awareness, governance reviews and practical remediation advice. My background combines professional consulting work,
+            ethical hacking, networking, homelab infrastructure, electronics repair, and software experimentation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Skills</h2>
+          <p>Core areas across security testing, Microsoft cloud security, governance and client-facing consultancy.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Security Testing</h3>
+            <ul>
+              <li>Internal and external vulnerability assessments</li>
+              <li>Web assessment and remediation guidance</li>
+              <li>Nmap, Metasploit, Nikto and Kali Linux tooling</li>
+              <li>RDP, SMB, FTP, SSH, SQL and web service testing</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Microsoft Security</h3>
+            <ul>
+              <li>Microsoft 365 configuration reviews</li>
+              <li>Microsoft Entra, Defender and Purview</li>
+              <li>CIS Benchmark aligned reviews</li>
+              <li>Azure fundamentals and cloud security awareness</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Governance & Training</h3>
+            <ul>
+              <li>ISO 27001 aligned policy reviews</li>
+              <li>Cyber Essentials support</li>
+              <li>GDPR-focused governance reviews</li>
+              <li>Cybersecurity awareness training</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Experience</h2>
+          <p>Professional cybersecurity and operational leadership experience.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="date">Feb 2026 – Present</div>
+            <div class="experience-card">
+              <h3>Cybersecurity Consultant</h3>
+              <div class="role-meta">CyberPATH / National Cyber Resilience Centre Group • Remote</div>
+              <p>Deliver cyber resilience services for SMEs, including vulnerability assessments, Microsoft 365 reviews, policy reviews and cybersecurity awareness training.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="date">Feb 2023 – Feb 2026</div>
+            <div class="experience-card">
+              <h3>Ethical Hacker</h3>
+              <div class="role-meta">Northeast Business Resilience Centre • Hybrid</div>
+              <p>Delivered tailored cybersecurity support, vulnerability scanning, client reports, awareness training and event outreach across the North East cyber community.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="date">Aug 2021 – Present</div>
+            <div class="experience-card">
+              <h3>Catering Stand Manager</h3>
+              <div class="role-meta">Delaware North / Sodexo Live • Stadium of Light / St. James' Park</div>
+              <p>Supervise large teams during high-pressure events, manage stock and logistics, resolve customer issues and maintain compliance standards.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Featured Project</h2>
+          <p>Final-year university project combining mobile development, AI and phishing detection.</p>
+        </div>
+        <div class="project">
+          <div class="project-visual">🛡️</div>
+          <div class="card">
+            <h3>Real-Time AI Phishing Detection for Android</h3>
+            <p>
+              Developed an Android app that scans incoming notifications and uses AI to detect suspected phishing content.
+              The app was designed for non-technical users and provides colour-coded warnings based on severity and confidence.
+            </p>
+            <div class="pill-wrap">
+              <span class="pill">Python</span>
+              <span class="pill">Kotlin</span>
+              <span class="pill">Java</span>
+              <span class="pill">Android Studio</span>
+              <span class="pill">OpenAI GPT-4o-mini</span>
+              <span class="pill">Notification Listener Service</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Certifications</h2>
+          <p>Technical, security and training credentials.</p>
+        </div>
+        <div class="certs">
+          <span class="cert">TryHackMe SOC Level 1</span>
+          <span class="cert">Cisco Ethical Hacker</span>
+          <span class="cert">Microsoft Azure Fundamentals</span>
+          <span class="cert">CCNA: Enterprise Networking, Security & Automation</span>
+          <span class="cert">ISC2 Certified in Cybersecurity</span>
+          <span class="cert">ThinkTree Accredited Trainer Programme</span>
+          <span class="cert">Azure AI Fundamentals</span>
+          <span class="cert">TryHackMe Pre-Security</span>
+          <span class="cert">TryHackMe Introduction to Cyber Security</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="homelab">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Homelab & Technical Interests</h2>
+          <p>Hands-on learning through infrastructure, electronics, modding and experimentation.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Homelab</h3>
+            <p>Linux server, Docker, OpenMediaVault, Plex, Pi-hole, AdGuard Home, file server and Azure VPN server.</p>
+          </div>
+          <div class="card">
+            <h3>Hardware</h3>
+            <p>Built PCs, installed CAT6 cabling, repaired consoles, rebuilt speakers, soldered electronics and built custom devices.</p>
+          </div>
+          <div class="card">
+            <h3>Security Curiosity</h3>
+            <p>Early experimentation with Android rooting, iOS jailbreaking, console modding, lockpicking, CTFs and wireless security.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Journey</h2>
+          <p>A condensed timeline showing progression from technical curiosity to professional cybersecurity consulting.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item"><div class="date">2015–2021</div><div class="experience-card"><h3>Early Technical Curiosity</h3><p>Started taking apart electronics, repairing devices, building computers, modifying controllers, experimenting with consoles and learning through hands-on projects.</p></div></div>
+          <div class="timeline-item"><div class="date">2022</div><div class="experience-card"><h3>Networking & Career Direction</h3><p>Completed Sixth Form with D*D*D*, passed driving test, installed CAT6 at home, started lockpicking and interviewed with NEBRC.</p></div></div>
+          <div class="timeline-item"><div class="date">2023</div><div class="experience-card"><h3>Professional Cybersecurity Begins</h3><p>Joined NEBRC, completed CCNA 1, started TryHackMe, attended cyber careers events, took part in a CTF and began professional security work.</p></div></div>
+          <div class="timeline-item"><div class="date">2024</div><div class="experience-card"><h3>Conferences, Training & Certifications</h3><p>Delivered cyber awareness training, completed ISC2 CC, became a CPD accredited trainer, attended BSidesNCL, CyberNorth CyberFest and Aspire Cyber Summit.</p></div></div>
+          <div class="timeline-item"><div class="date">2025</div><div class="experience-card"><h3>First Class Degree & AI Security Project</h3><p>Graduated with First Class Honours and completed a real-time AI phishing detection app for Android.</p></div></div>
+          <div class="timeline-item"><div class="date">2026</div><div class="experience-card"><h3>Cybersecurity Consultant</h3><p>Moved into a consultant role delivering cyber resilience services, Microsoft 365 reviews, vulnerability assessments and awareness training.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Contact</h2>
+          <p>Open to cybersecurity consulting, security testing, awareness training and professional networking.</p>
+        </div>
+        <div class="card">
+          <div class="buttons">
+            <a class="btn ghost" href="https://linkedin.com/in/colemohammed/" target="_blank" rel="noopener">LinkedIn Profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> © 2026 Cole Mohammed. Designed and built by me.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
